@@ -19,36 +19,39 @@ import com.itamp.Service.ChildService;
 @RequestMapping("/child")
 public class ChildController {
 	
-	@Autowired
-	private ChildService childService;
+@Autowired
+private ChildService childService;
 	
-	//add one child
-	@PostMapping( consumes = "application/Json")
-    public String add(@RequestBody Child child) {
-    	return childService.add(child); 	   
-    }
+//add one child
+@PostMapping( consumes = "application/Json")
+public String add(@RequestBody Child child) {
+    return childService.add(child); 	   
+}
 	
-	//get all child
-    @GetMapping()
-    public List<Child> all() {
+//get all child
+@GetMapping()
+public List<Child> all() {
     return childService.all();
-    }
+}
     
-    //get child by registrationid
-	@GetMapping("/{id}")
-	public Child get(@PathVariable String id) {
-	  Child child=childService.get(id);
-	 return child;
-	}
-	//update child
-	@PutMapping( consumes="application/json")
-	public void update(@RequestBody Child child) {
-		 childService.update(child);
-		 }
+//get child by registrationid
+@GetMapping("/{id}")
+public Child get(@PathVariable String id) { 
+    Child child=childService.get(id);
+    return child;
+}
 	
-		 @DeleteMapping("/{id}")
-		 public String delete(@PathVariable String registrationId) {
-		     childService.delete(registrationId);
-	        return null;      
-    }
+//update child
+@PutMapping( consumes="application/json")
+public void update(@RequestBody Child child) {
+    childService.update(child);
+}
+	
+//delete child		 
+@DeleteMapping("/{id}")
+public String delete(@PathVariable String registrationId) {
+    childService.delete(registrationId);
+    return null;      
+}
+	
 }
