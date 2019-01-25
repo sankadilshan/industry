@@ -6,7 +6,7 @@ import java.sql.Time;
 import javax.persistence.*;
 
 
-
+//child entity
 @Entity
 @Table(name="child")
 public class Child {
